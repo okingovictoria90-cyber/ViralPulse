@@ -3,139 +3,170 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="ViralPulse — the stories, quizzes, and internet moments everyone is talking about." />
-<title>ViralPulse — What's moving the internet</title>
+<meta name="theme-color" content="#fff8ff" />
+<title>ViralPulse — Discover What's Next</title>
 <style>
-:root{--bg:#090b11;--panel:#111520;--panel2:#171c29;--line:#262c3b;--text:#f5f7fb;--muted:#a5adbd;--pink:#ff3f87;--violet:#8067ff;--cyan:#50d8e8;--radius:18px}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#25143a 0,transparent 35%),var(--bg);color:var(--text);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}button{cursor:pointer;border:0;color:inherit}
-.wrap{max-width:1200px;margin:auto;padding:0 24px}.topbar{border-bottom:1px solid #ffffff12;background:#090b11e8;position:sticky;top:0;z-index:10;backdrop-filter:blur(16px)}
-.nav{height:76px;display:flex;align-items:center;gap:26px}.brand{font-weight:900;font-size:24px;letter-spacing:-1px;white-space:nowrap}.brand span{color:var(--pink)}.navlinks{display:flex;gap:20px;color:var(--muted);font-size:14px}.navlinks a:hover,.navlinks a.active{color:#fff}.search{margin-left:auto;position:relative}.search input{width:210px;border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:10px 15px;color:white;outline:none}.search input:focus{border-color:var(--violet)}.menu{display:none;background:transparent;font-size:23px}
-.hero{padding:42px 0 28px;display:grid;grid-template-columns:1.2fr .8fr;gap:24px}.hero-main{min-height:390px;border-radius:26px;overflow:hidden;position:relative;background:linear-gradient(130deg,#321339,#13182a 60%,#102b35);padding:34px;display:flex;flex-direction:column;justify-content:flex-end;border:1px solid #ffffff12}.hero-main:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 20%,#ff3f8755,transparent 25%),radial-gradient(circle at 85% 70%,#50d8e855,transparent 35%);pointer-events:none}.hero-main>*{position:relative}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:#ff9ac0;text-transform:uppercase;letter-spacing:1.5px;font-weight:800;font-size:11px}.dot{width:7px;height:7px;border-radius:50%;background:var(--pink);box-shadow:0 0 12px var(--pink)}h1{font-size:clamp(32px,4.4vw,56px);line-height:1.05;letter-spacing:-2px;margin:15px 0}.hero-main p{color:#cbd0dd;max-width:550px;margin:0 0 22px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 17px;border-radius:999px;background:linear-gradient(100deg,var(--pink),#a15cff);font-weight:800;color:#fff;width:max-content}.hero-side{display:grid;gap:16px}.side-card{border:1px solid #ffffff12;border-radius:22px;padding:23px;background:linear-gradient(135deg,#171c2b,#10131c);display:flex;flex-direction:column;justify-content:space-between;min-height:185px;overflow:hidden;position:relative}.side-card:nth-child(2){background:linear-gradient(130deg,#10242b,#161827)}.side-card .symbol{position:absolute;right:18px;top:8px;font-size:70px;opacity:.17}.side-card h3{font-size:22px;line-height:1.2;margin:10px 0}.side-card p{color:var(--muted);margin:0;font-size:13px}
-.section{padding:22px 0 34px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-bottom:18px}.section-head h2{margin:0;font-size:25px;letter-spacing:-.7px}.section-head p{margin:4px 0 0;color:var(--muted);font-size:13px}.text-btn{background:transparent;color:#ff8bb6;font-weight:800}.chips{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0 22px}.chip{background:var(--panel);border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:8px 13px;font-size:13px}.chip.active,.chip:hover{background:#332039;border-color:#79405d;color:#fff}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.story{border:1px solid #ffffff10;background:var(--panel);border-radius:var(--radius);overflow:hidden;transition:transform .2s,border-color .2s}.story:hover{transform:translateY(-4px);border-color:#ffffff35}.thumb{height:175px;display:grid;place-items:center;font-size:66px;position:relative;background:linear-gradient(135deg,#3b173a,#171b2a)}.thumb.t2{background:linear-gradient(135deg,#183a43,#181b2a)}.thumb.t3{background:linear-gradient(135deg,#392b13,#171b2a)}.thumb.t4{background:linear-gradient(135deg,#182f54,#171b2a)}.thumb.t5{background:linear-gradient(135deg,#3c1830,#171b2a)}.thumb.t6{background:linear-gradient(135deg,#143b2e,#171b2a)}.tag{position:absolute;left:13px;top:13px;background:#090b11c9;border:1px solid #ffffff1b;border-radius:999px;padding:5px 9px;font-size:10px;text-transform:uppercase;letter-spacing:.8px;font-weight:800}.story-body{padding:17px}.story h3{font-size:17px;line-height:1.35;margin:7px 0 10px}.story p{font-size:13px;color:var(--muted);margin:0}.meta{display:flex;align-items:center;gap:10px;color:#7f899d;font-size:11px;margin-top:15px}.meta span:last-child{margin-left:auto}.story-actions{display:flex;gap:8px;margin-top:13px}.small-btn{padding:7px 10px;border:1px solid var(--line);background:#171b26;border-radius:9px;font-size:12px;color:#cbd0dd}.small-btn:hover{border-color:#7254e7}
-.quiz-panel{border:1px solid #ffffff12;border-radius:22px;background:linear-gradient(120deg,#151a28,#21152b);padding:24px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:20px}.quiz-panel h3{font-size:23px;margin:6px 0}.quiz-panel p{color:var(--muted);margin:0}.quiz-icon{font-size:62px}
-.newsletter{border:1px solid #ffffff12;border-radius:22px;padding:27px;background:linear-gradient(120deg,#24162b,#111925);display:flex;align-items:center;gap:24px;justify-content:space-between}.newsletter h3{font-size:22px;margin:0 0 5px}.newsletter p{color:var(--muted);margin:0}.newsletter form{display:flex;gap:8px}.newsletter input{border:1px solid var(--line);background:#0d1018;color:#fff;border-radius:999px;padding:11px 14px;min-width:220px;outline:none}.newsletter button{border-radius:999px;padding:11px 16px;background:var(--pink);font-weight:800}
-.footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:13px}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-links{display:flex;gap:17px}
-.hidden{display:none!important}.empty{color:var(--muted);padding:30px;text-align:center;border:1px dashed var(--line);border-radius:16px}
-.modal-backdrop{position:fixed;inset:0;background:#000b;z-index:30;display:grid;place-items:center;padding:20px}.modal{max-width:560px;width:100%;background:#111520;border:1px solid var(--line);border-radius:22px;padding:24px;max-height:90vh;overflow:auto}.modal-top{display:flex;justify-content:space-between;align-items:center}.modal h2{margin:5px 0 12px}.close{background:#222736;border-radius:50%;width:35px;height:35px}.modal p{color:var(--muted)}.quiz-options{display:grid;gap:10px}.quiz-options button{padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#1a2030;text-align:left}.quiz-options button:hover{border-color:var(--violet)}.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.admin-grid label{display:grid;gap:6px;color:var(--muted);font-size:12px}.admin-grid input,.admin-grid select,.admin-grid textarea{width:100%;padding:10px;background:#0a0d14;color:white;border:1px solid var(--line);border-radius:10px}.admin-grid .wide{grid-column:1/-1}.admin-grid textarea{min-height:90px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#f5f7fb;color:#111;padding:11px 17px;border-radius:999px;font-weight:700;z-index:40;box-shadow:0 8px 30px #0008}
-@media(max-width:850px){.navlinks{display:none}.menu{display:block}.hero{grid-template-columns:1fr}.hero-main{min-height:340px}.hero-side{grid-template-columns:1fr 1fr}.cards{grid-template-columns:repeat(2,1fr)}.newsletter{align-items:flex-start;flex-direction:column}}
-@media(max-width:560px){.wrap{padding:0 15px}.nav{height:66px;gap:12px}.brand{font-size:21px}.search input{width:145px}.hero{padding-top:24px}.hero-main{padding:23px;min-height:350px}.hero-side{grid-template-columns:1fr}.side-card{min-height:155px}.cards{grid-template-columns:1fr}.thumb{height:190px}.section-head h2{font-size:22px}.quiz-panel{grid-template-columns:1fr}.quiz-icon{display:none}.newsletter form{width:100%;flex-direction:column}.newsletter input{min-width:0;width:100%}.newsletter button{width:100%}.admin-grid{grid-template-columns:1fr}.admin-grid .wide{grid-column:auto}}
+  :root{
+    --ink:#241638; --muted:#786b88; --paper:#fffaff; --line:#f0e5f5;
+    --pink:#ff4fa3; --purple:#8055ff; --orange:#ff9c54; --cyan:#51d8df;
+    --gradient:linear-gradient(135deg,#ff4fa3 0%,#9b55ff 52%,#5b70ff 100%);
+    --shadow:0 16px 45px rgba(104,57,148,.12);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(circle at 12% 0%,#ffe5f3 0,transparent 32%),radial-gradient(circle at 95% 18%,#e8e2ff 0,transparent 30%),var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+  button{font:inherit;cursor:pointer;border:0}
+  .shell{max-width:1220px;margin:auto;min-height:100vh;padding:0 24px}
+  header{height:82px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .brand{display:flex;align-items:center;gap:10px;font-size:24px;font-weight:900;letter-spacing:-1px}
+  .brandmark{height:40px;width:40px;border-radius:14px;background:var(--gradient);display:grid;place-items:center;color:white;box-shadow:0 8px 18px #ba72ed55;font-size:21px}
+  .brand span:last-child{background:var(--gradient);background-clip:text;color:transparent}
+  .search{width:min(360px,38vw);display:flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:11px 16px;color:#9888a8}
+  .search input{border:0;outline:0;background:transparent;width:100%;color:var(--ink)}
+  .header-actions{display:flex;align-items:center;gap:12px}
+  .upload{background:var(--gradient);color:white;padding:11px 18px;border-radius:999px;font-weight:800;box-shadow:0 8px 18px #b968dc33}
+  .avatar{height:38px;width:38px;border-radius:50%;background:linear-gradient(135deg,#ffc36b,#ff64b0 55%,#9368ff);display:grid;place-items:center;color:white;font-weight:900;border:3px solid white;box-shadow:0 0 0 1px #f1dff7}
+  .layout{display:grid;grid-template-columns:220px minmax(0,1fr) 250px;gap:26px;padding:16px 0 36px}
+  aside{align-self:start;position:sticky;top:18px}
+  .nav{display:grid;gap:7px}
+  .nav button{display:flex;align-items:center;gap:13px;padding:13px 14px;border-radius:15px;background:transparent;color:#776783;text-align:left;font-weight:750}
+  .nav button .ico{font-size:20px;width:24px;text-align:center}
+  .nav button.active{background:linear-gradient(100deg,#ffe5f3,#eee6ff);color:#7e42e8}
+  .side-note{margin-top:26px;padding:17px;border-radius:20px;background:linear-gradient(145deg,#fff,#fff1fa);border:1px solid #f4e3f7}
+  .side-note h3{margin:0 0 7px;font-size:14px}.side-note p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}
+  .side-note button{margin-top:13px;width:100%;border-radius:999px;padding:10px;color:white;font-weight:800;background:var(--gradient)}
+  main{min-width:0}
+  .welcome{display:flex;justify-content:space-between;align-items:end;margin:0 0 18px;gap:12px}
+  .welcome h1{font-size:clamp(25px,3vw,34px);letter-spacing:-1.2px;margin:0}
+  .welcome h1 em{font-style:normal;background:var(--gradient);background-clip:text;color:transparent}
+  .welcome p{margin:6px 0 0;color:var(--muted);font-size:14px}
+  .live-pill{background:#fff;border:1px solid #f1e3f7;border-radius:999px;padding:8px 12px;font-size:12px;color:#8a52d8;font-weight:800;white-space:nowrap}
+  .stories{display:flex;gap:13px;overflow:auto;padding:3px 2px 16px;scrollbar-width:none}
+  .story{min-width:68px;text-align:center;color:#6f5e7d;font-size:11px;font-weight:700}
+  .story-ring{width:62px;height:62px;padding:3px;border-radius:50%;background:var(--gradient);margin:0 auto 7px}
+  .story-ring .person{width:100%;height:100%;border:3px solid white;border-radius:50%;display:grid;place-items:center;font-size:23px;background:linear-gradient(145deg,#ffd5e8,#d9d1ff)}
+  .story.add .story-ring{background:#fff;border:1px dashed #cbb7e7;padding:2px}
+  .story.add .person{background:#f5eaff;color:#8c53ed}
+  .feed-card{background:white;border:1px solid #f0e4f6;border-radius:26px;overflow:hidden;box-shadow:var(--shadow)}
+  .post-head{display:flex;align-items:center;gap:11px;padding:16px 18px}
+  .creator{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-size:22px;background:linear-gradient(135deg,#ffe1ad,#ff9fcf)}
+  .creator-info{flex:1}.creator-info strong{font-size:13px}.creator-info small{display:block;color:#9a8aa8;margin-top:3px;font-size:11px}
+  .follow{padding:8px 14px;border:1px solid #eadcf6;border-radius:999px;background:white;color:#8b50e8;font-weight:800;font-size:12px}
+  .video-scene{position:relative;min-height:370px;height:min(58vw,510px);max-height:510px;overflow:hidden;background:linear-gradient(150deg,#ff8dc4,#9b68ff 48%,#5b83ff);display:flex;align-items:center;justify-content:center}
+  .video-scene:before{content:"";position:absolute;width:75%;height:120%;left:-18%;top:-15%;border-radius:50%;background:linear-gradient(140deg,#ffcf7d88,#ff68c366);filter:blur(2px);transform:rotate(22deg)}
+  .video-scene:after{content:"";position:absolute;width:65%;height:90%;right:-20%;bottom:-35%;border-radius:50%;background:linear-gradient(140deg,#6de8e988,#a77aff88);filter:blur(4px)}
+  .scene-art{position:relative;z-index:1;text-align:center;color:white;text-shadow:0 3px 18px #5d2a9470}
+  .scene-art .big-emoji{font-size:clamp(75px,14vw,150px);display:block;filter:drop-shadow(0 16px 22px #48277c40);animation:float 4s ease-in-out infinite}
+  .scene-art h2{font-size:clamp(22px,3.5vw,38px);margin:10px 0 0;letter-spacing:-1px}
+  .scene-art p{font-size:13px;margin:8px 0 0;color:#fffdfd}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(3deg)}}
+  .scene-label{position:absolute;z-index:2;left:16px;top:16px;padding:8px 11px;border-radius:999px;background:#ffffff30;backdrop-filter:blur(8px);color:white;font-size:11px;font-weight:900}
+  .scene-play{position:absolute;z-index:2;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;background:#ffffff35;color:white;font-size:20px;backdrop-filter:blur(8px)}
+  .post-copy{padding:14px 18px 4px;font-size:13px;line-height:1.5}
+  .post-copy strong{margin-right:6px}
+  .tags{color:#8e52e8;font-weight:700}
+  .post-actions{display:flex;align-items:center;gap:18px;padding:12px 18px 17px}
+  .action{background:transparent;color:#756582;display:flex;align-items:center;gap:7px;font-weight:750;font-size:13px}
+  .action .symbol{font-size:21px}.action.liked{color:#f34b9a}
+  .action.share{margin-left:auto}
+  .right-title{font-size:14px;font-weight:900;margin:5px 0 13px}
+  .trend-list{display:grid;gap:10px}
+  .trend{padding:13px;background:white;border:1px solid #f0e4f6;border-radius:17px;display:flex;gap:11px;align-items:center}
+  .trend-art{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:23px;background:linear-gradient(135deg,#ffe2f0,#e7ddff)}
+  .trend strong{font-size:12px;display:block}.trend small{font-size:11px;color:#9a8aa8;display:block;margin-top:4px}
+  .creator-list{display:grid;gap:13px}
+  .creator-row{display:flex;align-items:center;gap:9px}
+  .creator-row .creator{width:35px;height:35px;font-size:18px}
+  .creator-row .info{flex:1;min-width:0}.creator-row strong{font-size:11px;display:block}.creator-row small{font-size:10px;color:#9a8aa8}
+  .mini-follow{color:#9a55ec;background:#f5edff;border-radius:999px;padding:6px 9px;font-size:10px;font-weight:900}
+  .right-section{margin-top:25px}
+  .footer-note{font-size:10px;color:#ad9db8;line-height:1.8;margin-top:20px}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#302043;color:white;padding:12px 18px;border-radius:999px;font-size:13px;box-shadow:0 10px 30px #29153d33;opacity:0;pointer-events:none;transition:.25s;z-index:10}
+  .toast.show{opacity:1}
+  @media(max-width:980px){.layout{grid-template-columns:190px minmax(0,1fr)}.rightbar{display:none}}
+  @media(max-width:650px){.shell{padding:0 13px}header{height:68px}.brand{font-size:20px}.brandmark{height:35px;width:35px}.search{display:none}.upload{padding:9px 13px;font-size:12px}.layout{display:block;padding-top:8px}.leftbar{display:none}.welcome{align-items:center}.welcome p{font-size:12px}.live-pill{font-size:10px;padding:7px 9px}.video-scene{height:460px;min-height:340px}.feed-card{border-radius:22px}.post-head{padding:13px}.post-copy,.post-actions{padding-left:14px;padding-right:14px}.stories{gap:10px}.story{min-width:62px}.story-ring{width:58px;height:58px}}
 </style>
 </head>
 <body>
-<header class="topbar">
-  <div class="wrap nav">
-    <a class="brand" href="#" aria-label="ViralPulse home">Viral<span>Pulse</span><span style="color:#f5f7fb">.</span></a>
-    <nav class="navlinks" aria-label="Main navigation">
-      <a class="active" href="#trending">Trending</a><a href="#stories">Stories</a><a href="#quizzes">Quizzes</a><a href="#memes">Memes</a>
-    </nav>
-    <div class="search"><input id="search" type="search" placeholder="Search stories..." aria-label="Search stories"/></div>
-    <button class="menu" id="adminOpen" title="Open demo admin dashboard" aria-label="Open admin dashboard">☰</button>
-  </div>
-</header>
-<main>
-  <div class="wrap">
-    <section class="hero" id="trending">
-      <article class="hero-main">
-        <div class="eyebrow"><span class="dot"></span> The internet is talking</div>
-        <h1>Curiosity is<br/>going viral.</h1>
-        <p>Stories, surprising discoveries, and the moments bringing the world together. Catch the pulse of what's trending.</p>
-        <a class="btn" href="#stories">Explore trending stories&nbsp; ↗</a>
+<div class="shell">
+  <header>
+    <div class="brand"><div class="brandmark">✦</div><span>ViralPulse</span></div>
+    <label class="search">⌕ <input id="searchInput" placeholder="Search videos, creators, trends..." /></label>
+    <div class="header-actions"><button class="upload" id="uploadBtn">＋ Create</button><div class="avatar">V</div></div>
+  </header>
+  <div class="layout">
+    <aside class="leftbar">
+      <nav class="nav" aria-label="Main navigation">
+        <button class="active" data-nav="For You"><span class="ico">✦</span> For You</button>
+        <button data-nav="Following"><span class="ico">♡</span> Following</button>
+        <button data-nav="Explore"><span class="ico">⌕</span> Explore</button>
+        <button data-nav="Live"><span class="ico">◉</span> Live</button>
+        <button data-nav="Messages"><span class="ico">✉</span> Messages</button>
+        <button data-nav="Profile"><span class="ico">♙</span> Profile</button>
+      </nav>
+      <div class="side-note"><h3>Your next big moment ✨</h3><p>Share something you love. Your audience could be anywhere.</p><button id="sideCreate">Create a video</button></div>
+    </aside>
+    <main>
+      <div class="welcome"><div><h1>Catch the <em>vibe.</em></h1><p>A little inspiration. A lot of discovery.</p></div><span class="live-pill">● TRENDING NOW</span></div>
+      <div class="stories" aria-label="Stories">
+        <div class="story add"><div class="story-ring"><div class="person">＋</div></div>Your story</div>
+        <div class="story"><div class="story-ring"><div class="person">🌸</div></div>nala.vibes</div>
+        <div class="story"><div class="story-ring"><div class="person">🧑🏽‍🎤</div></div>kevin.wav</div>
+        <div class="story"><div class="story-ring"><div class="person">🎨</div></div>artbyzuri</div>
+        <div class="story"><div class="story-ring"><div class="person">🌍</div></div>global.days</div>
+        <div class="story"><div class="story-ring"><div class="person">✨</div></div>mimi.makes</div>
+      </div>
+      <article class="feed-card">
+        <div class="post-head"><div class="creator">🌺</div><div class="creator-info"><strong>@nala.vibes</strong><small>2 hours ago · Nairobi, Kenya</small></div><button class="follow">＋ Follow</button></div>
+        <div class="video-scene">
+          <span class="scene-label">✦ MADE FOR YOUR FEED</span>
+          <div class="scene-art"><span class="big-emoji">🌅</span><h2>Chasing golden moments</h2><p>POV: the world slows down for a second.</p></div>
+          <button class="scene-play" aria-label="Play video">▶</button>
+        </div>
+        <div class="post-copy"><strong>@nala.vibes</strong> A reminder to find the little magic in every day ✨ <span class="tags">#GoldenHour #GoodVibes #ViralPulse</span></div>
+        <div class="post-actions">
+          <button class="action likeBtn"><span class="symbol">♡</span><span class="likeCount">12.8K</span></button>
+          <button class="action commentBtn"><span class="symbol">▢</span><span>846</span></button>
+          <button class="action"><span class="symbol">♧</span><span>Share</span></button>
+          <button class="action share" title="Save video"><span class="symbol">♧</span></button>
+        </div>
       </article>
-      <div class="hero-side">
-        <article class="side-card">
-          <span class="symbol">✦</span><div class="eyebrow">Play & discover</div>
-          <h3>Find out what<br/>makes you, you.</h3><p>Quick quizzes. Unexpected results. Share your vibe.</p>
-          <a class="text-btn" href="#quizzes">Take a quiz →</a>
-        </article>
-        <article class="side-card">
-          <span class="symbol">⚡</span><div class="eyebrow">Pulse check</div>
-          <h3>Fresh takes.<br/>Big conversations.</h3><p>Discover the stories worth sending to your group chat.</p>
-          <a class="text-btn" href="#stories">Read the latest →</a>
-        </article>
+    </main>
+    <aside class="rightbar">
+      <h3 class="right-title">Trending topics ✨</h3>
+      <div class="trend-list">
+        <div class="trend"><div class="trend-art">💃🏽</div><div><strong>#PulseDance</strong><small>48.2K videos</small></div></div>
+        <div class="trend"><div class="trend-art">🍜</div><div><strong>#QuickBites</strong><small>31.6K videos</small></div></div>
+        <div class="trend"><div class="trend-art">🌍</div><div><strong>#AroundTheWorld</strong><small>27.9K videos</small></div></div>
       </div>
-    </section>
-
-    <section class="section" id="stories">
-      <div class="section-head"><div><h2>Trending right now <span style="color:var(--pink)">↗</span></h2><p>Stories to read, react to, and pass along.</p></div><button class="text-btn" id="adminOpen2">+ Add story</button></div>
-      <div class="chips" id="filters">
-        <button class="chip active" data-category="All">All stories</button><button class="chip" data-category="Culture">Culture</button><button class="chip" data-category="Curiosity">Curiosity</button><button class="chip" data-category="Entertainment">Entertainment</button><button class="chip" data-category="Feel-good">Feel-good</button>
-      </div>
-      <div class="cards" id="storyCards"></div>
-      <div class="empty hidden" id="empty">No stories match that search. Try another keyword.</div>
-    </section>
-
-    <section class="section" id="quizzes">
-      <div class="section-head"><div><h2>Quick quiz break</h2><p>Small questions. Shareable results.</p></div></div>
-      <div class="quiz-panel">
-        <div><div class="eyebrow">ViralPulse personality quiz</div><h3>What's your internet energy?</h3><p>Are you the trendsetter, the deep-diver, or the meme machine? Find out in 3 quick picks.</p><button class="btn" id="quizStart" style="margin-top:17px">Start the quiz →</button></div>
-        <div class="quiz-icon">🪩</div>
-      </div>
-    </section>
-
-    <section class="section" id="memes">
-      <div class="newsletter">
-        <div><div class="eyebrow">The weekly pulse</div><h3>Don't miss the next big thing.</h3><p>Get a short roundup of the stories everyone is sharing.</p></div>
-        <form id="newsletterForm"><input type="email" placeholder="Your email address" aria-label="Your email address" required/><button type="submit">Count me in</button></form>
-      </div>
-    </section>
+      <div class="right-section"><h3 class="right-title">Creators to discover</h3><div class="creator-list">
+        <div class="creator-row"><div class="creator">🎧</div><div class="info"><strong>kevin.wav</strong><small>Music & culture</small></div><button class="mini-follow">Follow</button></div>
+        <div class="creator-row"><div class="creator">🎨</div><div class="info"><strong>artbyzuri</strong><small>Creative moments</small></div><button class="mini-follow">Follow</button></div>
+        <div class="creator-row"><div class="creator">🌍</div><div class="info"><strong>global.days</strong><small>Travel & stories</small></div><button class="mini-follow">Follow</button></div>
+      </div></div>
+      <p class="footer-note">About · Community · Safety · Terms<br>© 2026 ViralPulse</p>
+    </aside>
   </div>
-</main>
-<footer class="footer"><div class="wrap footer-inner"><div><a class="brand" href="#">Viral<span>Pulse</span><span style="color:#f5f7fb">.</span></a><p>Curiosity moves culture. Made for the global internet.</p></div><div class="footer-links"><a href="#stories">Stories</a><a href="#quizzes">Quizzes</a><a href="#" id="footerAdmin">Admin demo</a><a href="#">Privacy</a></div><div>© <span id="year"></span> ViralPulse. Demo concept.</div></div></footer>
-
-<div class="modal-backdrop hidden" id="modalBackdrop">
-  <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-top"><div class="eyebrow">ViralPulse interactive</div><button class="close" id="modalClose" aria-label="Close">✕</button></div>
-    <div id="modalContent"></div>
-  </section>
 </div>
-<div class="toast hidden" id="toast" role="status"></div>
+<div class="toast" id="toast"></div>
 <script>
-const starterStories = [
- {id:1,category:"Curiosity",emoji:"🌌",theme:"",title:"Scientists keep finding new reasons to look up at the night sky",excerpt:"A fresh wave of discoveries is reminding us just how much is still out there.",read:"4 min read",date:"Trending"},
- {id:2,category:"Feel-good",emoji:"🐾",theme:"t2",title:"A tiny act of kindness turned into a moment the whole town remembers",excerpt:"Sometimes the smallest gestures have the biggest ripple effect.",read:"3 min read",date:"People"},
- {id:3,category:"Entertainment",emoji:"🎬",theme:"t3",title:"The movie detail fans are spotting on their second watch",excerpt:"One blink-and-you-miss-it moment has sparked a lively fan theory.",read:"5 min read",date:"Culture"},
- {id:4,category:"Culture",emoji:"🌍",theme:"t4",title:"The everyday traditions that look different around the world",excerpt:"A look at the little rituals that make places and people unique.",read:"6 min read",date:"World"},
- {id:5,category:"Curiosity",emoji:"🧩",theme:"t5",title:"Can you solve this visual puzzle before your friends?",excerpt:"Take a closer look. The answer may be hiding in plain sight.",read:"2 min read",date:"Challenge"},
- {id:6,category:"Feel-good",emoji:"✨",theme:"t6",title:"Meet the community making a neighborhood feel like home",excerpt:"A feel-good reminder that connection can start with one person.",read:"4 min read",date:"Inspiring"}
-];
-let stories = [...starterStories], activeCategory="All";
-const cards=document.getElementById("storyCards"), search=document.getElementById("search");
-function renderStories(){
- const term=search.value.toLowerCase().trim();
- const filtered=stories.filter(s=>(activeCategory==="All"||s.category===activeCategory)&&(`${s.title} ${s.excerpt} ${s.category}`).toLowerCase().includes(term));
- cards.innerHTML=filtered.map(s=>`<article class="story"><div class="thumb ${s.theme||""}"><span class="tag">${escapeHtml(s.category)}</span><span aria-hidden="true">${s.emoji||"✨"}</span></div><div class="story-body"><div class="eyebrow">${escapeHtml(s.date||"Fresh story")}</div><h3>${escapeHtml(s.title)}</h3><p>${escapeHtml(s.excerpt)}</p><div class="meta"><span>ViralPulse editorial</span><span>${escapeHtml(s.read||"3 min read")}</span></div><div class="story-actions"><button class="small-btn" onclick="shareStory(${s.id})">↗ Share</button><button class="small-btn" onclick="saveStory(${s.id},this)">♡ Save</button></div></div></article>`).join("");
- document.getElementById("empty").classList.toggle("hidden",filtered.length>0);
-}
-function escapeHtml(v){return String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
-document.querySelectorAll(".chip").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));b.classList.add("active");activeCategory=b.dataset.category;renderStories()}));
-search.addEventListener("input",renderStories);
-function showToast(message){const t=document.getElementById("toast");t.textContent=message;t.classList.remove("hidden");clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.add("hidden"),2400)}
-function shareStory(id){const s=stories.find(x=>x.id===id);if(navigator.share){navigator.share({title:s.title,text:s.excerpt,url:location.href}).catch(()=>{});}else if(navigator.clipboard){navigator.clipboard.writeText(s.title+" — "+location.href).then(()=>showToast("Story link copied!")).catch(()=>showToast("Share this story with your friends."));}else showToast("Share this story with your friends.");}
-function saveStory(id,button){button.textContent=button.textContent.includes("Saved")?"♡ Save":"✓ Saved";showToast(button.textContent.includes("Saved")?"Story saved in this session.":"Removed from saved.");}
-const backdrop=document.getElementById("modalBackdrop"), content=document.getElementById("modalContent");
-function openModal(html){content.innerHTML=html;backdrop.classList.remove("hidden");}
-function closeModal(){backdrop.classList.add("hidden")}
-document.getElementById("modalClose").onclick=closeModal;backdrop.addEventListener("click",e=>{if(e.target===backdrop)closeModal()});
-document.getElementById("quizStart").onclick=()=>startQuiz();
-let qIndex=0,answers=[];
-const questions=[
- {q:"Your ideal internet rabbit hole is…",a:["A strange fact I can't stop thinking about","A story that makes me feel something","A hilarious post I have to send everyone"]},
- {q:"In a group chat, you're usually…",a:["The one sharing discoveries","The one with thoughtful takes","The one keeping everyone laughing"]},
- {q:"Pick a weekend mood:",a:["Explore something new","Connect and reflect","Have fun and be spontaneous"]}
-];
-function startQuiz(){qIndex=0;answers=[];showQuestion()}
-function showQuestion(){
- if(qIndex>=questions.length){const tally=[0,0,0];answers.forEach(a=>tally[a]++);const idx=tally.indexOf(Math.max(...tally));const results=["You're the Curious Explorer 🔎 — you chase fascinating ideas and love learning something new.","You're the Heart Connector 💜 — you notice the human side and bring people together.","You're the Meme Machine 😂 — your humor and energy keep the group chat alive."];openModal(`<h2>Your internet energy</h2><p>${results[idx]}</p><button class="btn" onclick="closeModal()">That's me ✨</button> <button class="small-btn" onclick="startQuiz()">Try again</button>`);return}
- const item=questions[qIndex];openModal(`<div class="eyebrow">Question ${qIndex+1} of ${questions.length}</div><h2>${item.q}</h2><div class="quiz-options">${item.a.map((v,i)=>`<button onclick="answerQuiz(${i})">${v}</button>`).join("")}</div>`);
-}
-function answerQuiz(i){answers.push(i);qIndex++;showQuestion()}
-function openAdmin(){openModal(`<h2>Editorial dashboard</h2><p>This local demo lets you add a story card to the homepage. In a production site, admin access should require secure authentication and a database.</p><form id="storyForm" class="admin-grid"><label>Headline<input name="title" required maxlength="120" placeholder="Write a compelling headline"/></label><label>Category<select name="category"><option>Culture</option><option>Curiosity</option><option>Entertainment</option><option>Feel-good</option></select></label><label>Emoji<input name="emoji" maxlength="8" value="✨"/></label><label>Read time<input name="read" value="3 min read" maxlength="30"/></label><label class="wide">Short description<textarea name="excerpt" required maxlength="240" placeholder="A short preview for the story card"></textarea></label><div class="wide"><button class="btn" type="submit">Publish demo story</button></div></form>`);document.getElementById("storyForm").onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);stories.unshift({id:Date.now(),title:f.get("title"),category:f.get("category"),emoji:f.get("emoji")||"✨",read:f.get("read"),excerpt:f.get("excerpt"),date:"Just added",theme:""});renderStories();closeModal();showToast("Story added to this demo homepage.");document.getElementById("stories").scrollIntoView({behavior:"smooth"});};}
-document.getElementById("adminOpen").onclick=openAdmin;document.getElementById("adminOpen2").onclick=openAdmin;document.getElementById("footerAdmin").onclick=e=>{e.preventDefault();openAdmin()};
-document.getElementById("newsletterForm").onsubmit=e=>{e.preventDefault();showToast("Thanks! Newsletter signup is a demo—no email was stored.");e.target.reset()};
-document.getElementById("year").textContent=new Date().getFullYear();
-renderStories();
+  const toastEl = document.getElementById('toast');
+  let toastTimer;
+  function toast(message){toastEl.textContent=message;toastEl.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toastEl.classList.remove('show'),2300);}
+  document.querySelectorAll('.likeBtn').forEach(btn=>btn.addEventListener('click',()=>{
+    btn.classList.toggle('liked');const sym=btn.querySelector('.symbol');const count=btn.querySelector('.likeCount');
+    sym.textContent=btn.classList.contains('liked')?'♥':'♡';count.textContent=btn.classList.contains('liked')?'12.8K + 1':'12.8K';
+  }));
+  document.querySelectorAll('.follow,.mini-follow').forEach(btn=>btn.addEventListener('click',()=>{
+    const following=btn.dataset.following==='true';btn.dataset.following=String(!following);btn.textContent=following?'＋ Follow':'Following';toast(following?'Unfollowed':'You’re following this creator');
+  }));
+  document.querySelectorAll('[data-nav]').forEach(btn=>btn.addEventListener('click',()=>{
+    document.querySelectorAll('[data-nav]').forEach(item=>item.classList.remove('active'));btn.classList.add('active');toast(btn.dataset.nav+' is a preview section');
+  }));
+  document.getElementById('uploadBtn').addEventListener('click',()=>toast('Video creation will be connected in the next version.'));
+  document.getElementById('sideCreate').addEventListener('click',()=>toast('Video creation will be connected in the next version.'));
+  document.querySelector('.commentBtn').addEventListener('click',()=>toast('Comments are a preview in this version.'));
+  document.querySelector('.video-scene').addEventListener('click',()=>toast('This sample post is a design preview. Real video playback comes next.'));
+  document.getElementById('searchInput').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.value.trim())toast('Search preview: '+e.target.value.trim());});
 </script>
 </body>
 </html>
