@@ -1,172 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="theme-color" content="#fff8ff" />
-<title>ViralPulse — Discover What's Next</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#fff8ff"><title>ViralPulse</title>
 <style>
-  :root{
-    --ink:#241638; --muted:#786b88; --paper:#fffaff; --line:#f0e5f5;
-    --pink:#ff4fa3; --purple:#8055ff; --orange:#ff9c54; --cyan:#51d8df;
-    --gradient:linear-gradient(135deg,#ff4fa3 0%,#9b55ff 52%,#5b70ff 100%);
-    --shadow:0 16px 45px rgba(104,57,148,.12);
-  }
-  *{box-sizing:border-box}
-  body{margin:0;background:radial-gradient(circle at 12% 0%,#ffe5f3 0,transparent 32%),radial-gradient(circle at 95% 18%,#e8e2ff 0,transparent 30%),var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
-  button{font:inherit;cursor:pointer;border:0}
-  .shell{max-width:1220px;margin:auto;min-height:100vh;padding:0 24px}
-  header{height:82px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-  .brand{display:flex;align-items:center;gap:10px;font-size:24px;font-weight:900;letter-spacing:-1px}
-  .brandmark{height:40px;width:40px;border-radius:14px;background:var(--gradient);display:grid;place-items:center;color:white;box-shadow:0 8px 18px #ba72ed55;font-size:21px}
-  .brand span:last-child{background:var(--gradient);background-clip:text;color:transparent}
-  .search{width:min(360px,38vw);display:flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:11px 16px;color:#9888a8}
-  .search input{border:0;outline:0;background:transparent;width:100%;color:var(--ink)}
-  .header-actions{display:flex;align-items:center;gap:12px}
-  .upload{background:var(--gradient);color:white;padding:11px 18px;border-radius:999px;font-weight:800;box-shadow:0 8px 18px #b968dc33}
-  .avatar{height:38px;width:38px;border-radius:50%;background:linear-gradient(135deg,#ffc36b,#ff64b0 55%,#9368ff);display:grid;place-items:center;color:white;font-weight:900;border:3px solid white;box-shadow:0 0 0 1px #f1dff7}
-  .layout{display:grid;grid-template-columns:220px minmax(0,1fr) 250px;gap:26px;padding:16px 0 36px}
-  aside{align-self:start;position:sticky;top:18px}
-  .nav{display:grid;gap:7px}
-  .nav button{display:flex;align-items:center;gap:13px;padding:13px 14px;border-radius:15px;background:transparent;color:#776783;text-align:left;font-weight:750}
-  .nav button .ico{font-size:20px;width:24px;text-align:center}
-  .nav button.active{background:linear-gradient(100deg,#ffe5f3,#eee6ff);color:#7e42e8}
-  .side-note{margin-top:26px;padding:17px;border-radius:20px;background:linear-gradient(145deg,#fff,#fff1fa);border:1px solid #f4e3f7}
-  .side-note h3{margin:0 0 7px;font-size:14px}.side-note p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}
-  .side-note button{margin-top:13px;width:100%;border-radius:999px;padding:10px;color:white;font-weight:800;background:var(--gradient)}
-  main{min-width:0}
-  .welcome{display:flex;justify-content:space-between;align-items:end;margin:0 0 18px;gap:12px}
-  .welcome h1{font-size:clamp(25px,3vw,34px);letter-spacing:-1.2px;margin:0}
-  .welcome h1 em{font-style:normal;background:var(--gradient);background-clip:text;color:transparent}
-  .welcome p{margin:6px 0 0;color:var(--muted);font-size:14px}
-  .live-pill{background:#fff;border:1px solid #f1e3f7;border-radius:999px;padding:8px 12px;font-size:12px;color:#8a52d8;font-weight:800;white-space:nowrap}
-  .stories{display:flex;gap:13px;overflow:auto;padding:3px 2px 16px;scrollbar-width:none}
-  .story{min-width:68px;text-align:center;color:#6f5e7d;font-size:11px;font-weight:700}
-  .story-ring{width:62px;height:62px;padding:3px;border-radius:50%;background:var(--gradient);margin:0 auto 7px}
-  .story-ring .person{width:100%;height:100%;border:3px solid white;border-radius:50%;display:grid;place-items:center;font-size:23px;background:linear-gradient(145deg,#ffd5e8,#d9d1ff)}
-  .story.add .story-ring{background:#fff;border:1px dashed #cbb7e7;padding:2px}
-  .story.add .person{background:#f5eaff;color:#8c53ed}
-  .feed-card{background:white;border:1px solid #f0e4f6;border-radius:26px;overflow:hidden;box-shadow:var(--shadow)}
-  .post-head{display:flex;align-items:center;gap:11px;padding:16px 18px}
-  .creator{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-size:22px;background:linear-gradient(135deg,#ffe1ad,#ff9fcf)}
-  .creator-info{flex:1}.creator-info strong{font-size:13px}.creator-info small{display:block;color:#9a8aa8;margin-top:3px;font-size:11px}
-  .follow{padding:8px 14px;border:1px solid #eadcf6;border-radius:999px;background:white;color:#8b50e8;font-weight:800;font-size:12px}
-  .video-scene{position:relative;min-height:370px;height:min(58vw,510px);max-height:510px;overflow:hidden;background:linear-gradient(150deg,#ff8dc4,#9b68ff 48%,#5b83ff);display:flex;align-items:center;justify-content:center}
-  .video-scene:before{content:"";position:absolute;width:75%;height:120%;left:-18%;top:-15%;border-radius:50%;background:linear-gradient(140deg,#ffcf7d88,#ff68c366);filter:blur(2px);transform:rotate(22deg)}
-  .video-scene:after{content:"";position:absolute;width:65%;height:90%;right:-20%;bottom:-35%;border-radius:50%;background:linear-gradient(140deg,#6de8e988,#a77aff88);filter:blur(4px)}
-  .scene-art{position:relative;z-index:1;text-align:center;color:white;text-shadow:0 3px 18px #5d2a9470}
-  .scene-art .big-emoji{font-size:clamp(75px,14vw,150px);display:block;filter:drop-shadow(0 16px 22px #48277c40);animation:float 4s ease-in-out infinite}
-  .scene-art h2{font-size:clamp(22px,3.5vw,38px);margin:10px 0 0;letter-spacing:-1px}
-  .scene-art p{font-size:13px;margin:8px 0 0;color:#fffdfd}
-  @keyframes float{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(3deg)}}
-  .scene-label{position:absolute;z-index:2;left:16px;top:16px;padding:8px 11px;border-radius:999px;background:#ffffff30;backdrop-filter:blur(8px);color:white;font-size:11px;font-weight:900}
-  .scene-play{position:absolute;z-index:2;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;background:#ffffff35;color:white;font-size:20px;backdrop-filter:blur(8px)}
-  .post-copy{padding:14px 18px 4px;font-size:13px;line-height:1.5}
-  .post-copy strong{margin-right:6px}
-  .tags{color:#8e52e8;font-weight:700}
-  .post-actions{display:flex;align-items:center;gap:18px;padding:12px 18px 17px}
-  .action{background:transparent;color:#756582;display:flex;align-items:center;gap:7px;font-weight:750;font-size:13px}
-  .action .symbol{font-size:21px}.action.liked{color:#f34b9a}
-  .action.share{margin-left:auto}
-  .right-title{font-size:14px;font-weight:900;margin:5px 0 13px}
-  .trend-list{display:grid;gap:10px}
-  .trend{padding:13px;background:white;border:1px solid #f0e4f6;border-radius:17px;display:flex;gap:11px;align-items:center}
-  .trend-art{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:23px;background:linear-gradient(135deg,#ffe2f0,#e7ddff)}
-  .trend strong{font-size:12px;display:block}.trend small{font-size:11px;color:#9a8aa8;display:block;margin-top:4px}
-  .creator-list{display:grid;gap:13px}
-  .creator-row{display:flex;align-items:center;gap:9px}
-  .creator-row .creator{width:35px;height:35px;font-size:18px}
-  .creator-row .info{flex:1;min-width:0}.creator-row strong{font-size:11px;display:block}.creator-row small{font-size:10px;color:#9a8aa8}
-  .mini-follow{color:#9a55ec;background:#f5edff;border-radius:999px;padding:6px 9px;font-size:10px;font-weight:900}
-  .right-section{margin-top:25px}
-  .footer-note{font-size:10px;color:#ad9db8;line-height:1.8;margin-top:20px}
-  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#302043;color:white;padding:12px 18px;border-radius:999px;font-size:13px;box-shadow:0 10px 30px #29153d33;opacity:0;pointer-events:none;transition:.25s;z-index:10}
-  .toast.show{opacity:1}
-  @media(max-width:980px){.layout{grid-template-columns:190px minmax(0,1fr)}.rightbar{display:none}}
-  @media(max-width:650px){.shell{padding:0 13px}header{height:68px}.brand{font-size:20px}.brandmark{height:35px;width:35px}.search{display:none}.upload{padding:9px 13px;font-size:12px}.layout{display:block;padding-top:8px}.leftbar{display:none}.welcome{align-items:center}.welcome p{font-size:12px}.live-pill{font-size:10px;padding:7px 9px}.video-scene{height:460px;min-height:340px}.feed-card{border-radius:22px}.post-head{padding:13px}.post-copy,.post-actions{padding-left:14px;padding-right:14px}.stories{gap:10px}.story{min-width:62px}.story-ring{width:58px;height:58px}}
+:root{--ink:#251638;--muted:#80718f;--paper:#fffaff;--line:#eee2f5;--pink:#ff4fa3;--purple:#8055ff;--grad:linear-gradient(135deg,#ff4fa3,#9b55ff 55%,#5b70ff);--shadow:0 14px 40px #7843a817}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:radial-gradient(circle at 10% 0%,#ffe4f2,transparent 30%),radial-gradient(circle at 90% 15%,#e9e2ff,transparent 32%),var(--paper)}button,input{font:inherit}button{cursor:pointer;border:0}.shell{max-width:1200px;margin:auto;padding:0 22px}header{height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:24px;letter-spacing:-1px}.mark{width:40px;height:40px;border-radius:14px;background:var(--grad);color:white;display:grid;place-items:center}.brand-name{background:var(--grad);background-clip:text;color:transparent}.search{background:white;border:1px solid var(--line);padding:10px 14px;border-radius:999px;width:min(360px,38vw);display:flex;gap:8px}.search input{border:0;outline:0;width:100%;background:transparent}.header-right{display:flex;align-items:center;gap:12px}.create{background:var(--grad);color:white;padding:11px 17px;border-radius:999px;font-weight:800}.avatar{height:38px;width:38px;border-radius:50%;display:grid;place-items:center;color:white;font-weight:900;background:linear-gradient(135deg,#ffc46d,#ff62b1,#9368ff)}.layout{display:grid;grid-template-columns:205px minmax(0,1fr) 235px;gap:24px;padding:15px 0 35px}.left,.right{align-self:start;position:sticky;top:15px}.nav{display:grid;gap:7px}.nav button{background:transparent;text-align:left;color:#786783;padding:13px;border-radius:14px;font-weight:750;display:flex;gap:12px;align-items:center}.nav button.active{background:linear-gradient(100deg,#ffe4f3,#eee5ff);color:#8144e9}.nav .icon{font-size:20px;width:24px;text-align:center}.note{margin-top:25px;padding:16px;border:1px solid #f1e2f6;border-radius:18px;background:#fff5fb}.note p{font-size:12px;line-height:1.5;color:var(--muted)}.note button{width:100%;padding:10px;border-radius:99px;color:white;background:var(--grad);font-weight:800}.main{min-width:0}.page-heading{display:flex;justify-content:space-between;align-items:end;gap:10px;margin:0 0 18px}.page-heading h1{margin:0;font-size:clamp(24px,3vw,33px);letter-spacing:-1px}.page-heading h1 span{background:var(--grad);background-clip:text;color:transparent}.page-heading p{margin:5px 0 0;color:var(--muted);font-size:13px}.pill{font-size:11px;font-weight:850;color:#8b4bdd;background:white;border:1px solid var(--line);border-radius:999px;padding:8px 10px;white-space:nowrap}.stories{display:flex;gap:12px;overflow:auto;padding:0 2px 15px;scrollbar-width:none}.story{min-width:62px;text-align:center;font-size:11px;color:#746381;font-weight:700}.ring{height:59px;width:59px;margin:0 auto 6px;padding:3px;border-radius:50%;background:var(--grad)}.person{height:100%;border:3px solid white;border-radius:50%;background:linear-gradient(140deg,#ffd9ed,#d9d2ff);display:grid;place-items:center;font-size:22px}.story:first-child .ring{background:white;border:1px dashed #cdb8e8;padding:2px}.story:first-child .person{color:#8c50ec;background:#f4eaff}.card{background:white;border:1px solid #f0e4f6;border-radius:24px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:17px}.post-head{display:flex;align-items:center;gap:10px;padding:14px 16px}.creator{height:40px;width:40px;border-radius:50%;display:grid;place-items:center;font-size:22px;background:linear-gradient(135deg,#ffe1ad,#ff9fcf)}.who{flex:1}.who strong{font-size:13px}.who small{display:block;font-size:11px;color:#9a8aa8;margin-top:2px}.follow{padding:8px 13px;border:1px solid #eadcf6;border-radius:99px;background:white;color:#8b50e8;font-weight:800;font-size:12px}.visual{height:clamp(330px,52vw,490px);position:relative;overflow:hidden;display:grid;place-items:center;background:linear-gradient(145deg,#ff91c6,#9b68ff 52%,#5c83ff);color:white;text-align:center}.visual:before,.visual:after{content:"";position:absolute;border-radius:50%;filter:blur(2px)}.visual:before{width:80%;height:130%;left:-30%;top:-20%;background:#ffc66b55}.visual:after{width:75%;height:100%;right:-28%;bottom:-40%;background:#62e5e688}.visual-content{z-index:1;padding:20px;text-shadow:0 3px 16px #5d2a9466}.emoji{font-size:clamp(80px,13vw,145px);display:block;animation:float 4s ease-in-out infinite}.visual h2{margin:8px 0;font-size:clamp(22px,3vw,36px);letter-spacing:-1px}.visual p{margin:0;font-size:13px}.visual-tag{position:absolute;z-index:2;top:14px;left:14px;background:#ffffff35;padding:7px 10px;border-radius:99px;font-size:10px;font-weight:900}.play{position:absolute;z-index:2;bottom:15px;right:15px;background:#ffffff35;color:white;border-radius:50%;width:43px;height:43px;font-size:18px}.copy{padding:13px 16px 4px;font-size:13px;line-height:1.5}.tags{color:#8e52e8;font-weight:700}.actions{display:flex;gap:17px;padding:11px 16px 16px}.action{background:transparent;color:#756582;display:flex;gap:6px;align-items:center;font-size:13px;font-weight:750}.action .sym{font-size:20px}.action.liked{color:#f34b9a}.action.save{margin-left:auto}.right-title{font-size:14px;margin:4px 0 12px}.trend{display:flex;gap:10px;align-items:center;padding:11px;background:white;border:1px solid var(--line);border-radius:15px;margin-bottom:9px}.trend-art{height:44px;width:44px;border-radius:13px;background:linear-gradient(135deg,#ffe2f0,#e7ddff);display:grid;place-items:center;font-size:22px}.trend strong{font-size:12px;display:block}.trend small{font-size:11px;color:#9a8aa8}.right-section{margin-top:24px}.creator-row{display:flex;align-items:center;gap:8px;margin:12px 0}.creator-row .creator{height:34px;width:34px;font-size:18px}.creator-row .who strong{font-size:11px}.creator-row .who small{font-size:10px}.mini{background:#f5edff;color:#9251e8;border-radius:99px;padding:6px 9px;font-size:10px;font-weight:900}.footer{font-size:10px;color:#ad9db8;line-height:1.8;margin-top:20px}.section-panel{background:white;border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:var(--shadow);min-height:270px}.section-panel h2{margin:0 0 8px}.section-panel p{color:var(--muted);font-size:14px;line-height:1.55}.section-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}.tile{padding:20px;border-radius:17px;background:linear-gradient(135deg,#ffe3f2,#e8e1ff);font-weight:800;min-height:100px}.tile small{display:block;color:#786b88;font-weight:500;margin-top:6px}.profile-top{display:flex;align-items:center;gap:14px}.profile-big{height:70px;width:70px;border-radius:50%;display:grid;place-items:center;font-size:30px;color:white;background:var(--grad)}.stats{display:flex;gap:22px;margin:17px 0}.stats strong{display:block}.stats small{font-size:11px;color:var(--muted)}.message{background:#f7efff;border-radius:14px;padding:12px;margin:10px 0;font-size:13px}.message:nth-child(even){background:#fff0f7}.field{display:flex;gap:8px;margin-top:15px}.field input{flex:1;min-width:0;border:1px solid var(--line);border-radius:99px;padding:10px 14px;outline-color:#bd8cff}.field button{background:var(--grad);color:white;border-radius:99px;padding:0 15px;font-weight:800}.empty{color:var(--muted);padding:15px 0}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#302043;color:white;padding:12px 17px;border-radius:99px;font-size:13px;opacity:0;pointer-events:none;transition:.2s;z-index:5;max-width:90vw;text-align:center}.toast.show{opacity:1}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-10px) rotate(3deg)}}
+@media(max-width:980px){.layout{grid-template-columns:185px minmax(0,1fr)}.right{display:none}}
+@media(max-width:650px){.shell{padding:0 12px}header{height:65px}.brand{font-size:20px}.mark{width:35px;height:35px}.search{display:none}.create{padding:9px 12px;font-size:12px}.layout{display:block;padding-top:8px}.left{display:none}.page-heading p{font-size:12px}.pill{font-size:9px;padding:7px}.visual{height:450px}.card{border-radius:20px}.section-grid{grid-template-columns:1fr}.stories{gap:9px}}
 </style>
 </head>
-<body>
-<div class="shell">
-  <header>
-    <div class="brand"><div class="brandmark">✦</div><span>ViralPulse</span></div>
-    <label class="search">⌕ <input id="searchInput" placeholder="Search videos, creators, trends..." /></label>
-    <div class="header-actions"><button class="upload" id="uploadBtn">＋ Create</button><div class="avatar">V</div></div>
-  </header>
-  <div class="layout">
-    <aside class="leftbar">
-      <nav class="nav" aria-label="Main navigation">
-        <button class="active" data-nav="For You"><span class="ico">✦</span> For You</button>
-        <button data-nav="Following"><span class="ico">♡</span> Following</button>
-        <button data-nav="Explore"><span class="ico">⌕</span> Explore</button>
-        <button data-nav="Live"><span class="ico">◉</span> Live</button>
-        <button data-nav="Messages"><span class="ico">✉</span> Messages</button>
-        <button data-nav="Profile"><span class="ico">♙</span> Profile</button>
-      </nav>
-      <div class="side-note"><h3>Your next big moment ✨</h3><p>Share something you love. Your audience could be anywhere.</p><button id="sideCreate">Create a video</button></div>
-    </aside>
-    <main>
-      <div class="welcome"><div><h1>Catch the <em>vibe.</em></h1><p>A little inspiration. A lot of discovery.</p></div><span class="live-pill">● TRENDING NOW</span></div>
-      <div class="stories" aria-label="Stories">
-        <div class="story add"><div class="story-ring"><div class="person">＋</div></div>Your story</div>
-        <div class="story"><div class="story-ring"><div class="person">🌸</div></div>nala.vibes</div>
-        <div class="story"><div class="story-ring"><div class="person">🧑🏽‍🎤</div></div>kevin.wav</div>
-        <div class="story"><div class="story-ring"><div class="person">🎨</div></div>artbyzuri</div>
-        <div class="story"><div class="story-ring"><div class="person">🌍</div></div>global.days</div>
-        <div class="story"><div class="story-ring"><div class="person">✨</div></div>mimi.makes</div>
-      </div>
-      <article class="feed-card">
-        <div class="post-head"><div class="creator">🌺</div><div class="creator-info"><strong>@nala.vibes</strong><small>2 hours ago · Nairobi, Kenya</small></div><button class="follow">＋ Follow</button></div>
-        <div class="video-scene">
-          <span class="scene-label">✦ MADE FOR YOUR FEED</span>
-          <div class="scene-art"><span class="big-emoji">🌅</span><h2>Chasing golden moments</h2><p>POV: the world slows down for a second.</p></div>
-          <button class="scene-play" aria-label="Play video">▶</button>
-        </div>
-        <div class="post-copy"><strong>@nala.vibes</strong> A reminder to find the little magic in every day ✨ <span class="tags">#GoldenHour #GoodVibes #ViralPulse</span></div>
-        <div class="post-actions">
-          <button class="action likeBtn"><span class="symbol">♡</span><span class="likeCount">12.8K</span></button>
-          <button class="action commentBtn"><span class="symbol">▢</span><span>846</span></button>
-          <button class="action"><span class="symbol">♧</span><span>Share</span></button>
-          <button class="action share" title="Save video"><span class="symbol">♧</span></button>
-        </div>
-      </article>
-    </main>
-    <aside class="rightbar">
-      <h3 class="right-title">Trending topics ✨</h3>
-      <div class="trend-list">
-        <div class="trend"><div class="trend-art">💃🏽</div><div><strong>#PulseDance</strong><small>48.2K videos</small></div></div>
-        <div class="trend"><div class="trend-art">🍜</div><div><strong>#QuickBites</strong><small>31.6K videos</small></div></div>
-        <div class="trend"><div class="trend-art">🌍</div><div><strong>#AroundTheWorld</strong><small>27.9K videos</small></div></div>
-      </div>
-      <div class="right-section"><h3 class="right-title">Creators to discover</h3><div class="creator-list">
-        <div class="creator-row"><div class="creator">🎧</div><div class="info"><strong>kevin.wav</strong><small>Music & culture</small></div><button class="mini-follow">Follow</button></div>
-        <div class="creator-row"><div class="creator">🎨</div><div class="info"><strong>artbyzuri</strong><small>Creative moments</small></div><button class="mini-follow">Follow</button></div>
-        <div class="creator-row"><div class="creator">🌍</div><div class="info"><strong>global.days</strong><small>Travel & stories</small></div><button class="mini-follow">Follow</button></div>
-      </div></div>
-      <p class="footer-note">About · Community · Safety · Terms<br>© 2026 ViralPulse</p>
-    </aside>
-  </div>
-</div>
-<div class="toast" id="toast"></div>
+<body><div class="shell">
+<header><div class="brand"><div class="mark">✦</div><span class="brand-name">ViralPulse</span></div><label class="search">⌕ <input id="search" placeholder="Search creators and trends"></label><div class="header-right"><button class="create" id="create">＋ Create</button><div class="avatar">V</div></div></header>
+<div class="layout">
+<aside class="left"><nav class="nav" id="nav">
+<button class="active" data-page="For You"><span class="icon">✦</span>For You</button><button data-page="Following"><span class="icon">♡</span>Following</button><button data-page="Explore"><span class="icon">⌕</span>Explore</button><button data-page="Live"><span class="icon">◉</span>Live</button><button data-page="Messages"><span class="icon">✉</span>Messages</button><button data-page="Profile"><span class="icon">♙</span>Profile</button>
+</nav><div class="note"><strong>Your next big moment ✨</strong><p>Share something you love. Your audience could be anywhere.</p><button id="sideCreate">Create a video</button></div></aside>
+<main class="main" id="main"></main>
+<aside class="right"><h3 class="right-title">Trending topics ✨</h3><div class="trend"><div class="trend-art">💃🏽</div><div><strong>#PulseDance</strong><small>48.2K videos</small></div></div><div class="trend"><div class="trend-art">🍜</div><div><strong>#QuickBites</strong><small>31.6K videos</small></div></div><div class="trend"><div class="trend-art">🌍</div><div><strong>#AroundTheWorld</strong><small>27.9K videos</small></div></div><div class="right-section"><h3 class="right-title">Creators to discover</h3><div class="creator-row"><div class="creator">🎧</div><div class="who"><strong>kevin.wav</strong><small>Music & culture</small></div><button class="mini follow">Follow</button></div><div class="creator-row"><div class="creator">🎨</div><div class="who"><strong>artbyzuri</strong><small>Creative moments</small></div><button class="mini follow">Follow</button></div><div class="creator-row"><div class="creator">🌍</div><div class="who"><strong>global.days</strong><small>Travel & stories</small></div><button class="mini follow">Follow</button></div></div><p class="footer">About · Community · Safety · Terms<br>© 2026 ViralPulse</p></aside>
+</div></div><div class="toast" id="toast"></div>
 <script>
-  const toastEl = document.getElementById('toast');
-  let toastTimer;
-  function toast(message){toastEl.textContent=message;toastEl.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toastEl.classList.remove('show'),2300);}
-  document.querySelectorAll('.likeBtn').forEach(btn=>btn.addEventListener('click',()=>{
-    btn.classList.toggle('liked');const sym=btn.querySelector('.symbol');const count=btn.querySelector('.likeCount');
-    sym.textContent=btn.classList.contains('liked')?'♥':'♡';count.textContent=btn.classList.contains('liked')?'12.8K + 1':'12.8K';
-  }));
-  document.querySelectorAll('.follow,.mini-follow').forEach(btn=>btn.addEventListener('click',()=>{
-    const following=btn.dataset.following==='true';btn.dataset.following=String(!following);btn.textContent=following?'＋ Follow':'Following';toast(following?'Unfollowed':'You’re following this creator');
-  }));
-  document.querySelectorAll('[data-nav]').forEach(btn=>btn.addEventListener('click',()=>{
-    document.querySelectorAll('[data-nav]').forEach(item=>item.classList.remove('active'));btn.classList.add('active');toast(btn.dataset.nav+' is a preview section');
-  }));
-  document.getElementById('uploadBtn').addEventListener('click',()=>toast('Video creation will be connected in the next version.'));
-  document.getElementById('sideCreate').addEventListener('click',()=>toast('Video creation will be connected in the next version.'));
-  document.querySelector('.commentBtn').addEventListener('click',()=>toast('Comments are a preview in this version.'));
-  document.querySelector('.video-scene').addEventListener('click',()=>toast('This sample post is a design preview. Real video playback comes next.'));
-  document.getElementById('searchInput').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.value.trim())toast('Search preview: '+e.target.value.trim());});
-</script>
-</body>
-</html>
+const main=document.querySelector('#main'),toastEl=document.querySelector('#toast');let activePage='For You',toastTimer;const following=new Set(),liked=new Set(),saved=new Set();
+const posts=[{user:'nala.vibes',emoji:'🌅',face:'🌺',location:'Nairobi, Kenya',title:'Chasing golden moments',caption:'A reminder to find the little magic in every day ✨',tags:'#GoldenHour #GoodVibes #ViralPulse',likes:12800,comments:846},{user:'kevin.wav',emoji:'🎧',face:'🧑🏽‍🎤',location:'Accra, Ghana',title:'Sound on. World off.',caption:'A little rhythm for your timeline 🎶',tags:'#PulseDance #Music',likes:9400,comments:512},{user:'artbyzuri',emoji:'🎨',face:'🎨',location:'Lagos, Nigeria',title:'Make room for color',caption:'Today’s tiny creative break. What are you making?',tags:'#ArtTok #CreateEveryday',likes:6700,comments:291}];
+function toast(s){toastEl.textContent=s;toastEl.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toastEl.classList.remove('show'),2200)}
+function heading(title,sub,badge=''){return `<div class="page-heading"><div><h1>${title}</h1><p>${sub}</p></div>${badge?`<span class="pill">${badge}</span>`:''}</div>`}
+function stories(){return `<div class="stories"><div class="story"><div class="ring"><div class="person">＋</div></div>Your story</div>${[['🌸','nala.vibes'],['🧑🏽‍🎤','kevin.wav'],['🎨','artbyzuri'],['🌍','global.days'],['✨','mimi.makes']].map(x=>`<div class="story"><div class="ring"><div class="person">${x[0]}</div></div>${x[1]}</div>`).join('')}</div>`}
+function postCard(p,i){return `<article class="card"><div class="post-head"><div class="creator">${p.face}</div><div class="who"><strong>@${p.user}</strong><small>${i===0?'2 hours ago':'Recently'} · ${p.location}</small></div><button class="follow" data-follow="${p.user}">${following.has(p.user)?'Following':'＋ Follow'}</button></div><div class="visual" data-video="${i}"><span class="visual-tag">✦ MADE FOR YOUR FEED</span><div class="visual-content"><span class="emoji">${p.emoji}</span><h2>${p.title}</h2><p>POV: the world slows down for a second.</p></div><button class="play" data-video="${i}" aria-label="Play sample">▶</button></div><div class="copy"><strong>@${p.user}</strong> ${p.caption} <span class="tags">${p.tags}</span></div><div class="actions"><button class="action like ${liked.has(i)?'liked':''}" data-like="${i}"><span class="sym">${liked.has(i)?'♥':'♡'}</span><span>${(p.likes/1000).toFixed(1)}K${liked.has(i)?' + 1':''}</span></button><button class="action" data-comment="${i}"><span class="sym">▢</span>${p.comments}</button><button class="action" data-share="${i}"><span class="sym">↗</span>Share</button><button class="action save" data-save="${i}"><span class="sym">${saved.has(i)?'🔖':'♧'}</span></button></div></article>`}
+function renderFeed(list=posts){main.innerHTML=heading(activePage==='For You'?'Catch the <span>vibe.</span>':'Your people, your pulse.','A little inspiration. A lot of discovery.','● TRENDING NOW')+stories()+list.map(postCard).join('');bindFeed()}
+function renderExplore(){main.innerHTML=heading('Explore <span>the world.</span>','Find fresh creators, sounds, and moments.','DISCOVER')+`<section class="section-panel"><h2>What’s happening ✨</h2><p>Explore popular communities from around the world.</p><div class="section-grid"><div class="tile" data-explore="Dance">💃 #PulseDance<small>48.2K videos · Dance</small></div><div class="tile" data-explore="Food">🍜 #QuickBites<small>31.6K videos · Food</small></div><div class="tile" data-explore="Travel">🌍 #AroundTheWorld<small>27.9K videos · Travel</small></div><div class="tile" data-explore="Art">🎨 #MakeItColorful<small>18.4K videos · Art</small></div></div></section><h3>Popular videos</h3>${posts.map(postCard).join('')}`;bindFeed();document.querySelectorAll('[data-explore]').forEach(t=>t.onclick=()=>{document.querySelector('#search').value=t.dataset.explore;toast('Showing the '+t.dataset.explore+' topic preview')})}
+function renderLive(){main.innerHTML=heading('Live <span>now.</span>','Join creators broadcasting in real time.','LIVE')+`<section class="section-panel"><h2>Live rooms 🔴</h2><p>Live streaming is shown as a preview in this starter. These sample rooms are clickable.</p><div class="section-grid"><div class="tile" data-live="Nala’s sunset chat">🔴 Nala’s sunset chat<small>1.2K watching</small></div><div class="tile" data-live="Kevin making beats">🎧 Kevin making beats<small>843 watching</small></div></div></section>`;document.querySelectorAll('[data-live]').forEach(t=>t.onclick=()=>toast('Preview room: '+t.dataset.live))}
+function renderMessages(){main.innerHTML=heading('Messages <span>💌</span>','A friendly inbox preview.','INBOX')+`<section class="section-panel"><h2>Conversations</h2><div id="chat"><div class="message"><strong>nala.vibes</strong><br>Thanks for the love on my video! 🌸</div><div class="message"><strong>kevin.wav</strong><br>That sound is everywhere right now 🔥</div></div><form class="field" id="messageForm"><input id="messageInput" placeholder="Write a message..." required><button>Send</button></form></section>`;document.querySelector('#messageForm').onsubmit=e=>{e.preventDefault();let inp=document.querySelector('#messageInput');let m=inp.value.trim();if(!m)return;document.querySelector('#chat').insertAdjacentHTML('beforeend',`<div class="message"><strong>You</strong><br>${escapeHTML(m)}</div>`);inp.value='';toast('Message added to this local preview')}}
+function renderProfile(){main.innerHTML=heading('Your <span>profile.</span>','Your creator space at ViralPulse.','PROFILE')+`<section class="section-panel"><div class="profile-top"><div class="profile-big">V</div><div><h2>Victoria</h2><p>@yourpulse · New creator</p><button class="create" id="editProfile">Edit profile</button></div></div><div class="stats"><div><strong>0</strong><small>Videos</small></div><div><strong>0</strong><small>Followers</small></div><div><strong>${following.size}</strong><small>Following</small></div></div><hr style="border:0;border-top:1px solid var(--line)"><p>Your videos and saved posts will appear here. This is a local demo profile.</p></section>`;document.querySelector('#editProfile').onclick=()=>toast('Profile editing will be connected when accounts are added')}
+function render(){document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===activePage));if(activePage==='For You')renderFeed(posts);else if(activePage==='Following')renderFeed(posts.filter(p=>following.has(p.user)));else if(activePage==='Explore')renderExplore();else if(activePage==='Live')renderLive();else if(activePage==='Messages')renderMessages();else renderProfile()}
+function bindFeed(){document.querySelectorAll('[data-follow]').forEach(b=>b.onclick=()=>{const u=b.dataset.follow;if(following.has(u)){following.delete(u);b.textContent='＋ Follow';toast('Unfollowed @'+u)}else{following.add(u);b.textContent='Following';toast('Following @'+u)}if(activePage==='Following')render()});document.querySelectorAll('[data-like]').forEach(b=>b.onclick=()=>{let i=+b.dataset.like;if(liked.has(i))liked.delete(i);else liked.add(i);render()});document.querySelectorAll('[data-comment]').forEach(b=>b.onclick=()=>{let n=+b.dataset.comment;const txt=prompt('Add a comment to @'+posts[n].user+'’s post:');if(txt&&txt.trim()){posts[n].comments++;toast('Comment added in this preview')}});document.querySelectorAll('[data-share]').forEach(b=>b.onclick=()=>{if(navigator.clipboard){navigator.clipboard.writeText(location.href).then(()=>toast('Page link copied')).catch(()=>toast('Share preview ready'))}else toast('Share preview ready')});document.querySelectorAll('[data-save]').forEach(b=>b.onclick=()=>{let i=+b.dataset.save;saved.has(i)?saved.delete(i):saved.add(i);b.querySelector('.sym').textContent=saved.has(i)?'🔖':'♧';toast(saved.has(i)?'Saved to your collection':'Removed from saved')});document.querySelectorAll('[data-video]').forEach(b=>b.onclick=()=>toast('Sample visual only — actual video playback is not connected yet.'))}
+function escapeHTML(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>{activePage=b.dataset.page;render()});document.querySelector('#create').onclick=()=>toast('Video upload is the next feature to connect.');document.querySelector('#sideCreate').onclick=()=>toast('Video upload is the next feature to connect.');document.querySelector('#search').addEventListener('keydown',e=>{if(e.key==='Enter'){let q=e.target.value.trim().toLowerCase();activePage='Explore';renderExplore();if(q){let matches=posts.filter(p=>(p.user+' '+p.caption+' '+p.tags).toLowerCase().includes(q));main.innerHTML=heading('Search <span>results.</span>','Results for “'+escapeHTML(e.target.value)+'”')+(matches.length?matches.map(postCard).join(''):'<section class="section-panel empty">No sample results found. Try a creator name or hashtag.</section>');bindFeed()}}});render();
+</script></body></html>
